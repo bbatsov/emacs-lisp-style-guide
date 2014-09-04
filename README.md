@@ -38,6 +38,7 @@ You can generate a PDF or an HTML copy of this guide using
 * [Naming](#naming)
 * [Strings](#strings)
 * [Macros](#macros)
+    * [Macro Declarations](#macro-declarations)
 * [Comments](#comments)
     * [Comment Annotations](#comment-annotations)
 * [Existential](#existential)
@@ -329,6 +330,24 @@ name clashes.
   composability.
 
 * Prefer syntax-quoted forms over building lists manually.
+
+### Macro Declarations
+
+* Always declare the [debug-specification](http://www.gnu.org/software/emacs/manual/html_node/elisp/Specification-List.html#Specification-List),
+  this tells edebug which arguments are meant for evaluation. If all
+  arguments are evaluated, a simple `(declare (debug t))` is enough.
+
+* Declare the [indent specification](https://www.gnu.org/software/emacs/manual/html_node/elisp/Indenting-Macros.html#Indenting-Macros)
+  if the macro arguments should not be aligned like a function (think
+  of `defun` or `with-current-buffer`).
+
+    ```el
+    (defmacro define-widget (name &rest forms)
+      "Description"
+      (declare (debug (sexp body))
+               (indent defun))
+      ...)
+    ```
 
 ## Comments
 
