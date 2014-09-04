@@ -162,6 +162,37 @@ pairwise constructs as found in e.g. `let` and `cond`.
 
 ## Syntax
 
+* Indent the if clause of an `if` 2 spaces deeper than its else clause.
+
+    ```el
+    ;; good
+    (if something
+        if-clause
+      else-clause)
+
+    ;; bad
+    (if something
+      if-clause
+      else-clause)
+    ```
+
+* Don't wrap the else clause of an `if` in a `progn` (it's wrapped in `progn` implicitly).
+
+    ```el
+    ;; good
+    (if something
+        if-clause
+      (something)
+      (something-else))
+
+    ;; bad
+    (if something
+        if-clause
+      (progn
+        (something)
+        (something-else)))
+    ```
+
 * Use `when` instead of `(if ... (progn ...)`.
 
     ```el
