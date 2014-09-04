@@ -360,7 +360,7 @@ and the text that follows it.
     ;;;   2. Bar.
     ;;;   3. Baz.
 
-    (defun fnord [zarquon]
+    (defun fnord (zarquon)
       ;; If zob, then veeblefitz.
       (quux zot
             mumble             ; Zibblefrotz.
@@ -402,8 +402,7 @@ at all.
   be easily verified.
 
     ```el
-    (defun some-fun
-      []
+    (defun some-fun ()
       ;; FIXME: This has crashed occasionally since v1.2.3. It may
       ;;        be related to the BarBazUtil upgrade. (xz 13-1-31)
       (baz))
@@ -414,8 +413,7 @@ at all.
   with no note. This usage should be the exception and not the rule.
 
     ```el
-    (defun bar
-      []
+    (defun bar ()
       (sleep 100)) ; OPTIMIZE
     ```
 
