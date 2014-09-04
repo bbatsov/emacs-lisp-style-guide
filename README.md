@@ -32,15 +32,11 @@ You can generate a PDF or an HTML copy of this guide using
 * [Source Code Layout & Organization](#source-code-layout--organization)
 * [Syntax](#syntax)
 * [Naming](#naming)
-* [Collections](#collections)
-* [Mutation](#mutation)
 * [Strings](#strings)
-* [Exceptions](#exceptions)
 * [Macros](#macros)
 * [Comments](#comments)
     * [Comment Annotations](#comment-annotations)
 * [Existential](#existential)
-* [Tooling](#tooling)
 
 ## Source Code Layout & Organization
 
