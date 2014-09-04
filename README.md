@@ -274,11 +274,11 @@ name clashes.
 
     ```el
     ;; good
-    (defn palindrome-p ...)
+    (defun palindrome-p ...)
 
     ;; bad
-    (defn palindrome? ...) ; Scheme style
-    (defn is-palindrome ...) ; Java style
+    (defun palindrome? ...) ; Scheme style
+    (defun is-palindrome ...) ; Java style
     ```
 
 ## Macros
