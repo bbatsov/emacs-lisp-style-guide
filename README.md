@@ -39,6 +39,7 @@ You can generate a PDF or an HTML copy of this guide using
 * [Strings](#strings)
 * [Macros](#macros)
     * [Macro Declarations](#macro-declarations)
+* [Anonymous (lambda) functions](#anonymous-lambda-functions)
 * [Comments](#comments)
     * [Comment Annotations](#comment-annotations)
 * [Existential](#existential)
@@ -241,16 +242,6 @@ pairwise constructs as found in e.g. `let` and `cond`.
     (and (> x 5) (< x 10))
     ```
 
-* Don't wrap functions in anonymous functions when you don't need to.
-
-    ```el
-    ;; good
-    (cl-remove-if-not 'evenp numbers)
-
-    ;; bad
-    (cl-remove-if-not (lambda (x) (evenp x)) numbers)
-    ```
-
 * Use `t` as the catch-all test expression in `cond`.
 
     ```el
@@ -337,6 +328,49 @@ name clashes.
   composability.
 
 * Prefer syntax-quoted forms over building lists manually.
+
+## Anonymous (lambda) functions
+
+* Use `lambda`s for local bindings and function calls, **not** for
+  hooks or global variables. Define named functions for the latter,
+  they aid readability and customizability.
+
+    ```el
+    ;;; Good
+    (mapcar (lambda (x) (or (car x) "")) some-list)
+    (let ((predicate (lambda (x) (and (numberp x) (evenp x)))))
+      (funcall predicate 1000))
+    
+    ;;; Bad - Define real functions for these.
+    (defcustom my-predicate (lambda (x) (and (numberp x) (evenp x)))
+      ...)
+    (define-key my-keymap (kbd "C-f")
+      (lambda () (interactive) (forward-char 1)))
+    (add-hook 'my-hook (lambda () (save-some-buffers)))
+    ```
+
+* **Never** hard quote a lambda, it impedes byte-compilation. 
+
+    ```el
+    ;;; Good
+    (lambda (x) (car x))
+    
+    ;;; Ok, but redundant.
+    #'(lambda (x) (car x))
+    
+    ;;; Bad
+    '(lambda (x) (car x))
+    ```
+    
+* Don't wrap functions in anonymous functions when you don't need to.
+
+    ```el
+    ;; good
+    (cl-remove-if-not #'evenp numbers)
+
+    ;; bad
+    (cl-remove-if-not (lambda (x) (evenp x)) numbers)
+    ```
 
 ### Macro Declarations
 
