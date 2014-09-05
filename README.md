@@ -313,7 +313,7 @@ name clashes.
 
 * The names of predicate methods (methods that return a boolean value)
   should end in a `p` if it's a single-word name and a `-p` if it's a
-  many-word name (e.g., `evenp` and `buffer-live-p`).
+  multi-word name (e.g., `evenp` and `buffer-live-p`).
 
     ```el
     ;; good
