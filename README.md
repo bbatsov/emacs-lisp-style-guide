@@ -312,12 +312,13 @@ name clashes.
 * Use `--` to denote private top-level definitions (e.g. `projectile--private-fun`).
 
 * The names of predicate methods (methods that return a boolean value)
-  should end in a `p` or `-p`
-  (e.g., `evenp`).
+  should end in a `p` if it's a single-word name and a `-p` if it's a
+  many-word name (e.g., `evenp` and `buffer-live-p`).
 
     ```el
     ;; good
-    (defun palindrome-p ...)
+    (defun palindromep ...)
+    (defun only-one-p ...)
 
     ;; bad
     (defun palindrome? ...) ; Scheme style
