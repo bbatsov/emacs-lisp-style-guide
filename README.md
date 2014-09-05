@@ -95,6 +95,20 @@ hit `<tab>`.
       ...)
     ```
 
+* Indent the if clause of an `if` 2 spaces deeper than its else clause.
+
+    ```el
+    ;; good
+    (if something
+        if-clause
+      else-clause)
+
+    ;; bad
+    (if something
+      if-clause
+      else-clause)
+    ```
+
 * Use Unix-style line endings. (*BSD/Solaris/Linux/OSX users are
   covered by default, Windows users have to be extra careful.)
     * If you're using Git you might want to add the following
@@ -174,20 +188,6 @@ pairwise constructs as found in e.g. `let` and `cond`.
     ```
 
 ## Syntax
-
-* Indent the if clause of an `if` 2 spaces deeper than its else clause.
-
-    ```el
-    ;; good
-    (if something
-        if-clause
-      else-clause)
-
-    ;; bad
-    (if something
-      if-clause
-      else-clause)
-    ```
 
 * Don't wrap the else clause of an `if` in a `progn` (it's wrapped in `progn` implicitly).
 
@@ -345,7 +345,7 @@ name clashes.
     (mapcar (lambda (x) (or (car x) "")) some-list)
     (let ((predicate (lambda (x) (and (numberp x) (evenp x)))))
       (funcall predicate 1000))
-    
+
     ;;; Bad - Define real functions for these.
     (defcustom my-predicate (lambda (x) (and (numberp x) (evenp x)))
       ...)
@@ -354,19 +354,19 @@ name clashes.
     (add-hook 'my-hook (lambda () (save-some-buffers)))
     ```
 
-* **Never** hard quote a lambda, it impedes byte-compilation. 
+* **Never** hard quote a lambda, it impedes byte-compilation.
 
     ```el
     ;;; Good
     (lambda (x) (car x))
-    
+
     ;;; Ok, but redundant.
     #'(lambda (x) (car x))
-    
+
     ;;; Bad
     '(lambda (x) (car x))
     ```
-    
+
 * Don't wrap functions in anonymous functions when you don't need to.
 
     ```el
