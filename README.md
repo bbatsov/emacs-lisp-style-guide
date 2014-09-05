@@ -42,6 +42,7 @@ You can generate a PDF or an HTML copy of this guide using
 * [Anonymous (lambda) functions](#anonymous-lambda-functions)
 * [Comments](#comments)
     * [Comment Annotations](#comment-annotations)
+    * [Docstrings](#docstrings)
 * [Existential](#existential)
 
 ## Source Code Layout & Organization
@@ -501,6 +502,23 @@ at all.
 
 * Use other custom annotation keywords if it feels appropriate, but be
   sure to document them in your project's `README` or similar.
+
+### Docstrings
+
+Emacs is famous for the breadth, depth, and ubiquity of its
+documentation. By taking the time to write docstrings in your package,
+you are helping to continue that tradition!
+
+* Begin with a terse, complete sentence. Use imperative language. For
+  example, prefer "Verify" over "Verifies", and "Check" over "Checks".
+* When a function takes arguments, mention what the arguments do,
+  whether they are required, and so on. Describe the arguments in
+  UPCASE, and order them as they are used.
+* Always capitalize "Emacs".
+* Emacs' built-in utility, Checkdoc, can automatically check
+  docstrings for adherence to coding conventions with the built-in
+  Checkdoc utility. Many in the Emacs community use Checkdoc by way of
+  [Flycheck](http://flycheck.readthedocs.org/en/latest/).
 
 ## Existential
 
