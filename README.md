@@ -50,6 +50,10 @@ You can generate a PDF or an HTML copy of this guide using
 > probably right... <br/>
 > -- Jerry Coffin (on indentation)
 
+The indentation guidelines specified here can be taken for granted if
+you're writing in Emacs. It will always do the right thing when you
+hit `<tab>`.
+
 * Use two **spaces** per indentation level. No hard tabs.
 
     ```el
