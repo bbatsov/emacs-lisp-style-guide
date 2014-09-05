@@ -511,10 +511,13 @@ you are helping to continue that tradition!
 
 * Begin with a terse, complete sentence. Use imperative language. For
   example, prefer "Verify" over "Verifies", and "Check" over "Checks".
+  
 * When a function takes arguments, mention what the arguments do,
   whether they are required, and so on. Describe the arguments in
   UPCASE, and order them as they are used.
+  
 * Always capitalize "Emacs".
+
 * Emacs' built-in utility, Checkdoc, can automatically check
   docstrings for adherence to coding conventions with the built-in
   Checkdoc utility. Many in the Emacs community use Checkdoc by way of
