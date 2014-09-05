@@ -333,6 +333,14 @@ name clashes.
   composability.
 
 * Prefer syntax-quoted forms over building lists manually.
+    ```el
+    ;;; Good
+    `(foo ,x)
+
+    ;;; Bad
+    (list 'foo x)
+    ```
+
 
 ## Anonymous (lambda) functions
 
