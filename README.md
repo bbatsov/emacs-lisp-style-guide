@@ -366,12 +366,13 @@ name clashes.
 
 * Endeavor to make your code as self-documenting as possible.
 
-* Write heading comments with at least four semicolons.
+* Write heading comments with at least three semicolons.
 
-* Write top-level comments with three semicolons.
+* Write top-level comments with three semicolons if it represents a
+  heading, otherwise use two semicolons.
 
 * Write comments on a particular fragment of code before that fragment
-and aligned with it, using two semicolons.
+  and aligned with it, using two semicolons.
 
 * Write margin comments with one semicolon.
 
@@ -379,12 +380,13 @@ and aligned with it, using two semicolons.
 and the text that follows it.
 
     ```el
-    ;;;; Frob Grovel
+    ;;; Frob Grovel
+    ;; This is where Frob grovels and where Grovel frobs.
 
-    ;;; This section of code has some important implications:
-    ;;;   1. Foo.
-    ;;;   2. Bar.
-    ;;;   3. Baz.
+    ;; This section of code has some important implications:
+    ;;   1. Foo.
+    ;;   2. Bar.
+    ;;   3. Baz.
 
     (defun fnord (zarquon)
       ;; If zob, then veeblefitz.
