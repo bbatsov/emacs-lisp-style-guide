@@ -161,6 +161,13 @@ pairwise constructs as found in e.g. `let` and `cond`.
 
 * Avoid parameter lists with more than three or four positional parameters.
 
+* Always enable lexical scoping. This must be done on the first line
+  as a file local variable.
+
+    ```el
+    ;;; -*- lexical-binding: t; -*-
+    ```
+
 ## Syntax
 
 * Indent the if clause of an `if` 2 spaces deeper than its else clause.
