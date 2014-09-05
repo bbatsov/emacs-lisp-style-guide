@@ -249,10 +249,22 @@ pairwise constructs as found in e.g. `let` and `cond`.
 
     ```el
     ;; good
-    (cl-remove-if-not 'evenp numbers)
+    (cl-remove-if-not #'evenp numbers)
 
     ;; bad
     (cl-remove-if-not (lambda (x) (evenp x)) numbers)
+    ```
+
+* Use a sharp quote (`#'`) when quoting function names. An exception
+  can be made when defining key bindings.
+
+    ```el
+    ;; good
+    (cl-remove-if-not #'evenp numbers)
+    (global-set-key (kbd "C-l C-l") 'redraw-display)
+
+    ;; bad
+    (cl-remove-if-not 'evenp numbers)
     ```
 
 * Use `t` as the catch-all test expression in `cond`.
