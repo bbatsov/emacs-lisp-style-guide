@@ -237,13 +237,13 @@ pairwise constructs as found in e.g. `let` and `cond`.
     ```
 
 * When doing comparisons, keep in mind that the functions `<`,
-  `>`, etc. accept a variable number of arguments.
+  `>`, etc. accept a variable number of arguments as of Emacs 24.4.
 
     ```el
-    ;; good
+    ;; Preferred
     (< 5 x 10)
 
-    ;; bad
+    ;; Old
     (and (> x 5) (< x 10))
     ```
 
