@@ -40,6 +40,7 @@ You can generate a PDF or an HTML copy of this guide using
 * [Macros](#macros)
     * [Macro Declarations](#macro-declarations)
 * [Anonymous (lambda) functions](#anonymous-lambda-functions)
+* [Loading and Autoloading](#loading-and-autoloading)
 * [Comments](#comments)
     * [Comment Annotations](#comment-annotations)
     * [Docstrings](#docstrings)
@@ -396,6 +397,61 @@ name clashes.
       ...)
     ```
 
+### Loading and Autoloading
+
+* Always end each library file with a `provide` statement and an
+  appropriate comment (the `provide` statement will allow dependent
+  libraries to use `require`).
+
+    ```el
+    (provide 'foo)
+
+    ;;; foo.el ends here
+    ```
+
+* Always load library dependencies with `require`, rather than `load`
+  or `load-library` (the former is idempotent, while the others can
+  result in multiple evaluations).
+
+* Include `autoload` cookies for mode definitions and commonly-used
+  user-facing functions and commands (i.e. setup functions and
+  commands that could be bound to a key). Conversely, **do not**
+  provide autoload cookies for global variables or internal functions.
+
+    ```el
+    ;;; good
+    ;;;###autoload
+    (define-derived-mode foo-mode ...)
+
+    ;;;###autoload
+    (define-minor-mode foo-minor-mode ...)
+
+    ;;;###autoload
+    (defun foo-setup () ...)
+
+    ;;; bad
+    ;;;###autoload
+    (defun foo--internal () ...)
+
+    ;;;###autoload
+    (defvar foo-option)
+    ```
+
+* **Do not** provide `autoload` cookies for non-definition top-level
+  forms (autoloading a library should never alter the behavior of a
+  user's configuration). The single exception: `auto-mode-alist` can
+  be altered for new major modes.
+
+    ```el
+    ;;; good
+    ;;;###autoload
+    (add-to-list 'auto-mode-alist '("\\.foo\\'" . foo-mode))
+
+    ;;; bad
+    ;;;###autoload
+    (foo-setup)
+    ```
+
 ## Comments
 
 > Good code is its own best documentation. As you're about to add a
@@ -511,11 +567,11 @@ you are helping to continue that tradition!
 
 * Begin with a terse, complete sentence. Use imperative language. For
   example, prefer "Verify" over "Verifies", and "Check" over "Checks".
-  
+
 * When a function takes arguments, mention what the arguments do,
   whether they are required, and so on. Describe the arguments in
   UPCASE, and order them as they are used.
-  
+
 * Always capitalize "Emacs".
 
 * Emacs' built-in utility, Checkdoc, can automatically check
