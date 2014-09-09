@@ -57,19 +57,9 @@ The indentation guidelines specified here can be taken for granted if
 you're writing in Emacs. It will always do the right thing when you
 hit `<tab>`.
 
-* Use two **spaces** per indentation level. No hard tabs.
+* Use **spaces** for indentation. No hard tabs.
 
-    ```el
-    ;; good
-    (when something
-      (something-else))
-
-    ;; bad - four spaces
-    (when something
-        (something-else))
-    ```
-
-* Vertically align function arguments.
+* For regular functions, vertically align function arguments.
 
     ```el
     ;; good
@@ -81,6 +71,59 @@ hit `<tab>`.
     (format "%s %d"
       something
       something-else)
+    ```
+
+* If the first argument is on a new line, align it with the function's name.
+
+    ```el
+    ;; good
+    (format 
+     "%s %d"
+     something
+     something-else)
+
+    ;; bad
+    (format 
+      "%s %d"
+      something
+      something-else)
+    ```
+
+* Some forms are special, they take 1 or more _"special"_ arguments
+  followed by a _"body"_ (an arbitrary number of arguments where only
+  the final return value matters), e.g. `if`, `let`,
+  `with-current-buffer`, etc. The special arguments should either be
+  on the same line as the form's name or be indented by 4 spaces. The
+  body arguments should be indented by 2 spaces.
+
+    ```el
+    ;; good
+    (when something
+      (something-else))
+
+    ;; bad - four spaces on the body
+    (when something
+        (something-else))
+        
+    ;; bad - aligned like a regular function
+    (when 
+     something
+     (something-else))
+    ```
+
+* Note the "if" clause of an `if` form is a special argument, indent it
+  by 4 spaces.
+
+    ```el
+    ;; good
+    (if something
+        if-clause
+      else-clause)
+
+    ;; bad
+    (if something
+      if-clause
+      else-clause)
     ```
 
 * Vertically align `let` bindings.
@@ -95,20 +138,6 @@ hit `<tab>`.
     (let ((thing1 "some stuff")
       (thing2 "other stuff"))
       ...)
-    ```
-
-* Indent the if clause of an `if` 2 spaces deeper than its else clause.
-
-    ```el
-    ;; good
-    (if something
-        if-clause
-      else-clause)
-
-    ;; bad
-    (if something
-      if-clause
-      else-clause)
     ```
 
 * Use Unix-style line endings. (*BSD/Solaris/Linux/OSX users are
