@@ -324,6 +324,26 @@ name clashes.
 
 * Don't write a macro if a function will do.
 
+    ```el
+    ;;; good
+    (defun my-complex-function (name)
+      (let ((fn-name (intern (format "my-generated-function-%S" name))))
+        (fset fn-name (lambda ()
+                        (1+ 5)))))
+
+    (my-complex-function 'foo)
+    (my-generated-function-foo)
+
+    ;;; bad
+    (defmacro my-complex-macro (name)
+      (let ((fn-name (intern (format "my-generated-function-%S" name))))
+        `(defun ,fn-name ()
+           (1+ 3))))
+
+    (my-complex-macro foo)
+    (my-generated-function-foo)
+    ```
+
 * Create an example of a macro usage first and the macro afterwards.
 
 * Break complicated macros into smaller functions whenever possible.
