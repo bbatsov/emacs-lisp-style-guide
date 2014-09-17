@@ -603,6 +603,37 @@ you are helping to continue that tradition!
 
 * Always capitalize "Emacs".
 
+* Do not indent subsequent lines of a documentation string. This looks nice in the source code, but looks bizarre when users view the documentation.
+
+  ```el
+  ;; good
+  (defun goto-line (line &optional buffer)
+    "Go to LINE, counting from line 1 at beginning of buffer.
+
+  If called interactively, a numeric prefix argument specifies
+  LINE; without a numeric prefix argument, read LINE from the
+  minibuffer..."
+  ...)
+
+  ;; bad
+  (defun goto-line (line &optional buffer)
+    "Go to LINE, counting from line 1 at beginning of buffer.
+
+     If called interactively, a numeric prefix argument specifies
+     LINE; without a numeric prefix argument, read LINE from the
+     minibuffer..."
+    ...)
+
+  ;; also bad
+  (defun goto-line (line &optional buffer)
+    "Go to LINE, counting from line 1 at beginning of buffer.
+
+     If called interactively, a numeric prefix argument specifies
+   LINE; without a numeric prefix argument, read LINE from the
+   minibuffer..."
+    ...)
+  ```
+
 * Emacs' built-in utility, Checkdoc, can automatically check
   docstrings for adherence to coding conventions with the built-in
   Checkdoc utility. Many in the Emacs community use Checkdoc by way of
