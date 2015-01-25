@@ -365,7 +365,7 @@ name clashes.
 
 * Prefer syntax-quoted forms over building lists manually.
 
-## Anonymous (lambda) functions
+## Functions
 
 * Use `lambda`s for local bindings and function calls, **not** for
   hooks or global variables. Define named functions for the latter,
@@ -406,6 +406,20 @@ name clashes.
 
     ;; bad
     (cl-remove-if-not (lambda (x) (evenp x)) numbers)
+    ```
+
+* Use a sharp quote (`#'`) when quoting function names. It's a good
+  hint for the byte-compiler, which will warn you if the function is
+  undefined. Some macros use it too.
+
+    ```el
+    ;; good
+    (cl-remove-if-not #'evenp numbers)
+    (global-set-key (kbd "C-l C-l") #'redraw-display)
+    
+    ;; bad
+    (cl-remove-if-not 'evenp numbers)
+    (global-set-key (kbd "C-l C-l") 'redraw-display)
     ```
 
 ### Macro Declarations
