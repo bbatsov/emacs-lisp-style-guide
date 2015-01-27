@@ -410,16 +410,21 @@ name clashes.
 
 * Use a sharp quote (`#'`) when quoting function names. It's a good
   hint for the byte-compiler, which will warn you if the function is
-  undefined. Some macros use it too.
+  undefined. Some macros can also behave differently otherwise (like
+  `cl-labels`).
 
     ```el
     ;; good
     (cl-remove-if-not #'evenp numbers)
     (global-set-key (kbd "C-l C-l") #'redraw-display)
+    (cl-labels ((butterfly () (message "42")))
+      (funcall #'butterfly))
     
     ;; bad
     (cl-remove-if-not 'evenp numbers)
     (global-set-key (kbd "C-l C-l") 'redraw-display)
+    (cl-labels ((butterfly () (message "42")))
+      (funcall 'butterfly))
     ```
 
 ### Macro Declarations
