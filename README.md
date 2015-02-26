@@ -540,8 +540,7 @@ and the text that follows it.
     ```
 
 * Comments longer than a word begin with a capital letter and use
-  punctuation. Separate sentences with
-  [one space](http://en.wikipedia.org/wiki/Sentence_spacing).
+  punctuation. Separate sentences with two spaces.
 
 * Avoid superfluous comments.
 
