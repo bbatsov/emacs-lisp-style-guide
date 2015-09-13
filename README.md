@@ -627,7 +627,6 @@ you are helping to continue that tradition!
   ;; good
   (defun goto-line (line &optional buffer)
     "Go to LINE, counting from line 1 at beginning of buffer.
-
   If called interactively, a numeric prefix argument specifies
   LINE; without a numeric prefix argument, read LINE from the
   minibuffer..."
@@ -636,7 +635,6 @@ you are helping to continue that tradition!
   ;; bad
   (defun goto-line (line &optional buffer)
     "Go to LINE, counting from line 1 at beginning of buffer.
-
      If called interactively, a numeric prefix argument specifies
      LINE; without a numeric prefix argument, read LINE from the
      minibuffer..."
@@ -645,7 +643,6 @@ you are helping to continue that tradition!
   ;; also bad
   (defun goto-line (line &optional buffer)
     "Go to LINE, counting from line 1 at beginning of buffer.
-
      If called interactively, a numeric prefix argument specifies
    LINE; without a numeric prefix argument, read LINE from the
    minibuffer..."
