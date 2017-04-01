@@ -350,6 +350,15 @@ name clashes.
     (defun palindrome? ...) ; Scheme style
     (defun is-palindrome ...) ; Java style
     ```
+* Face names [should not](https://www.gnu.org/software/emacs/manual/html_node/elisp/Defining-Faces.html) end in `-face`.
+
+    ```el
+    ;; good
+    (defface widget-inactive ...)
+
+    ;; bad
+    (defface widget-inactive-face ...)
+    ```
 
 ## Macros
 
