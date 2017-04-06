@@ -33,28 +33,21 @@ You can generate a PDF or an HTML copy of this guide using
 
 ## Table of Contents
 
-<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
-**Table of Contents**
-
-- [The Emacs Lisp Style Guide](#the-emacs-lisp-style-guide)
-    - [Table of Contents](#table-of-contents)
-    - [Source Code Layout & Organization](#source-code-layout--organization)
-    - [Syntax](#syntax)
-    - [Naming](#naming)
-    - [Macros](#macros)
-    - [Functions](#functions)
-        - [Macro Declarations](#macro-declarations)
-        - [Loading and Autoloading](#loading-and-autoloading)
-    - [Comments](#comments)
-        - [Comment Annotations](#comment-annotations)
-        - [Docstrings](#docstrings)
-    - [Tools](#tools)
-    - [Existential](#existential)
+- [Source Code Layout & Organization](#source-code-layout--organization)
+- [Syntax](#syntax)
+- [Naming](#naming)
+- [Macros](#macros)
+- [Functions](#functions)
+    - [Macro Declarations](#macro-declarations)
+    - [Loading and Autoloading](#loading-and-autoloading)
+- [Comments](#comments)
+    - [Comment Annotations](#comment-annotations)
+    - [Docstrings](#docstrings)
+- [Tools](#tools)
+- [Existential](#existential)
 - [Contributing](#contributing)
 - [License](#license)
 - [Spread the Word](#spread-the-word)
-
-<!-- markdown-toc end -->
 
 ## Source Code Layout & Organization
 
