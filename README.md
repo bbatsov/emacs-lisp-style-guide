@@ -33,18 +33,21 @@ You can generate a PDF or an HTML copy of this guide using
 
 ## Table of Contents
 
-* [Source Code Layout & Organization](#source-code-layout--organization)
-* [Syntax](#syntax)
-* [Naming](#naming)
-* [Strings](#strings)
-* [Macros](#macros)
-    * [Macro Declarations](#macro-declarations)
-* [Anonymous (lambda) functions](#anonymous-lambda-functions)
-* [Loading and Autoloading](#loading-and-autoloading)
-* [Comments](#comments)
-    * [Comment Annotations](#comment-annotations)
-    * [Docstrings](#docstrings)
-* [Existential](#existential)
+- [Source Code Layout & Organization](#source-code-layout--organization)
+- [Syntax](#syntax)
+- [Naming](#naming)
+- [Macros](#macros)
+- [Functions](#functions)
+    - [Macro Declarations](#macro-declarations)
+    - [Loading and Autoloading](#loading-and-autoloading)
+- [Comments](#comments)
+    - [Comment Annotations](#comment-annotations)
+    - [Docstrings](#docstrings)
+- [Tools](#tools)
+- [Existential](#existential)
+- [Contributing](#contributing)
+- [License](#license)
+- [Spread the Word](#spread-the-word)
 
 ## Source Code Layout & Organization
 
@@ -658,10 +661,15 @@ you are helping to continue that tradition!
     ...)
   ```
 
-* Emacs' built-in utility, Checkdoc, can automatically check
-  docstrings for adherence to coding conventions with the built-in
-  Checkdoc utility. Many in the Emacs community use Checkdoc by way of
-  [Flycheck](http://flycheck.readthedocs.org/en/latest/).
+## Tools
+
+* Use `checkdoc` to check for style issues
+  * Many in the Emacs community use `checkdoc`
+    with [Flycheck](http://flycheck.readthedocs.org/en/latest/).
+* Use [`package-lint`](https://github.com/purcell/package-lint) to check
+  packages before submission to repositories such
+  as [MELPA](https://melpa.org/).
+  * See the `package-lint` README about integration with [`flycheck`](http://www.flycheck.org/en/latest/).
 
 ## Existential
 
