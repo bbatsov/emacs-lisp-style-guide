@@ -40,6 +40,7 @@ You can generate a PDF or an HTML copy of this guide using
 - [Functions](#functions)
     - [Macro Declarations](#macro-declarations)
     - [Loading and Autoloading](#loading-and-autoloading)
+- [Lists](#lists)
 - [Comments](#comments)
     - [Comment Annotations](#comment-annotations)
     - [Docstrings](#docstrings)
@@ -510,6 +511,52 @@ name clashes.
     ;;; bad
     ;;;###autoload
     (foo-setup)
+    ```
+
+## Lists
+
+* Use `dolist` instead of calling the same s-exps over different variables:
+
+    ```el
+    ;;; good
+    (dolist (hook '(prog-mode-hook text-mode-hook))
+      (add-hook hook 'turn-on-column-number-mode)
+      (add-hook hook 'turn-off-line-number-mode)
+      (add-hook hook 'linum-mode))
+
+    ;;; bad
+    (add-hook 'prog-mode-hook 'turn-on-column-number-mode)
+    (add-hook 'prog-mode-hook 'turn-off-line-number-mode)
+    (add-hook 'prog-mode-hook 'linum-mode))
+    (add-hook 'text-mode-hook 'turn-on-column-number-mode)
+    (add-hook 'text-mode-hook 'turn-off-line-number-mode)
+    (add-hook 'text-mode-hook 'linum-mode))
+    ```
+
+* Use `seq-do` or `dolist` instead of `mapcar` if you don't intend to concatenate
+  the result.
+
+    ```el
+    ;;; good
+    (font-lock-add-keywords nil (mapcar 'downcase list-of-crazy-cased-words))
+    (seq-do 'load list-of-files-to-load)
+
+    ;;; bad
+    (mapcar 'load list-of-files-to-load)
+    ```
+
+* Use `dolist` instead of calling `seq-do` over a lambda. Reserve `seq-do` for
+  single function calls.
+
+    ```el
+    ;;; good
+    (dolist (map (list c-mode-map c++-mode-map))
+      (define-key map "\C-c\C-c" 'compile))
+
+    ;;; bad
+    (mapc
+      (lambda () (define-key map "\C-c\C-c" 'compile))
+      (list c-mode-map c++-mode-map))
     ```
 
 ## Comments
