@@ -135,7 +135,7 @@ hit `<tab>`.
     ```el
     ;; good
     (let ((thing1 "some stuff")
-          (thing2 "other stuff")
+          (thing2 "other stuff"))
       ...)
 
     ;; bad
