@@ -555,7 +555,7 @@ name clashes.
 
     ;;; bad
     (mapc
-      (lambda () (define-key map "\C-c\C-c" 'compile))
+      (lambda (map) (define-key map "\C-c\C-c" 'compile))
       (list c-mode-map c++-mode-map))
     ```
 
