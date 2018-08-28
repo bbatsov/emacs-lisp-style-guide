@@ -63,6 +63,21 @@ hit `<tab>`.
 
 * Use **spaces** for indentation. No hard tabs.
 
+In practical terms this means you should add the following to your
+Emacs config:
+
+``` el
+(setq indent-tabs-mode nil)
+```
+
+An even better idea would be to force the use of spaces using
+`.dir-locals.el` in each of your Emacs Lisp projects.
+
+``` el
+((emacs-lisp-mode
+  (indent-tabs-mode nil)))
+```
+
 * For regular functions, vertically align function arguments.
 
     ```el
@@ -81,13 +96,13 @@ hit `<tab>`.
 
     ```el
     ;; good
-    (format 
+    (format
      "%s %d"
      something
      something-else)
 
     ;; bad
-    (format 
+    (format
       "%s %d"
       something
       something-else)
@@ -108,9 +123,9 @@ hit `<tab>`.
     ;; bad - four spaces on the body
     (when something
         (something-else))
-        
+
     ;; bad - aligned like a regular function
-    (when 
+    (when
      something
      (something-else))
     ```
@@ -432,7 +447,7 @@ name clashes.
     (global-set-key (kbd "C-l C-l") #'redraw-display)
     (cl-labels ((butterfly () (message "42")))
       (funcall #'butterfly))
-    
+
     ;; bad
     (cl-remove-if-not 'evenp numbers)
     (global-set-key (kbd "C-l C-l") 'redraw-display)
