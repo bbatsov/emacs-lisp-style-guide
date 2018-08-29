@@ -130,18 +130,18 @@ An even better idea would be to force the use of spaces using
      (something-else))
     ```
 
-* Note the "if" clause of an `if` form is a special argument, indent it
+* Note that the "then" clause of an `if` form is a special argument, indent it
   by 4 spaces.
 
     ```el
     ;; good
     (if something
-        if-clause
+        then-clause
       else-clause)
 
     ;; bad
     (if something
-      if-clause
+      then-clause
       else-clause)
     ```
 
