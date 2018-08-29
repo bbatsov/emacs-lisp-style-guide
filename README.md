@@ -67,7 +67,7 @@ In practical terms this means you should add the following to your
 Emacs config:
 
 ``` el
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 ```
 
 An even better idea would be to force the use of spaces using
