@@ -29,7 +29,7 @@ Please note, that the Emacs developers maintain a list of
 too.
 
 You can generate a PDF or an HTML copy of this guide using
-[Transmuter](https://github.com/TechnoGate/transmuter).
+[Pandoc](https://pandoc.org/).
 
 ## Table of Contents
 
