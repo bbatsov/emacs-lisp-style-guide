@@ -314,6 +314,22 @@ pairwise constructs as found in e.g. `let` and `cond`.
 
 * Use `(1+ x)` & `(1- x)` instead of `(+ x 1)` and `(- x 1)`.
 
+* Use `with-eval-after-load` instead of `eval-after-load`.
+
+    ```el
+    ;; good
+    (with-eval-after-load "foo"
+      (bar)
+      (baz))
+
+
+    ;; bad
+    (eval-after-load "foo"
+      '(progn
+         (bar)
+         (baz)))
+    ```
+
 ## Naming
 
 > The only real difficulties in programming are cache invalidation and
