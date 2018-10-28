@@ -646,7 +646,10 @@ at all.
 > -- Russ Olsen
 
 * Avoid writing comments to explain bad code. Refactor the code to
-  make it self-explanatory. ("Do, or do not. There is no try." --Yoda)
+  make it self-explanatory.
+  
+> Do, or do not. There is no try. <br/>
+> -- Yoda
 
 ### Comment Annotations
 
