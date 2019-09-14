@@ -813,12 +813,12 @@
      - Many in the Emacs community use =checkdoc= with
        [[http://flycheck.readthedocs.org/en/latest/][Flycheck]].
 
-   - Use [[https://github.com/purcell/package-lint][=package-lint=]] to
+   - Use [[https://github.com/purcell/package-lint][package-lint]] to
      check packages before submission to repositories such as
      [[https://melpa.org/][MELPA]].
 
      - See the =package-lint= README about integration with
-       [[http://www.flycheck.org/en/latest/][=flycheck=]].
+       [[http://www.flycheck.org/en/latest/][flycheck]].
 
 ** Existential
    :PROPERTIES:
@@ -862,4 +862,5 @@
   makes the guide just a little bit better. And we want to have the best
   possible guide, don't we?
 
-  Cheers, [[https://twitter.com/bbatsov][Bozhidar]]
+  Cheers,\\
+  [[https://twitter.com/bbatsov][Bozhidar]]
