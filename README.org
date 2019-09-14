@@ -4,7 +4,9 @@
   :END:
 
   #+BEGIN_QUOTE
-  Role models are important. -- Officer Alex J. Murphy / RoboCop
+  Role models are important.
+
+  -- Officer Alex J. Murphy / RoboCop
   #+END_QUOTE
 
   This Emacs Lisp style guide recommends best practices so that real-world
@@ -64,12 +66,16 @@
    #+BEGIN_QUOTE
    Nearly everybody is convinced that every style but their own is ugly
    and unreadable. Leave out the "but their own" and they're probably
-   right... -- Jerry Coffin (on indentation)
+   right...
+
+   -- Jerry Coffin (on indentation)
    #+END_QUOTE
 
+   #+BEGIN_NOTE
    The indentation guidelines specified here can be taken for granted if
    you're writing in Emacs. It will always do the right thing when you hit
    =<tab>=.
+   #+END_NOTE
 
    - Use *spaces* for indentation. No hard tabs.
 
@@ -355,7 +361,9 @@
 
    #+BEGIN_QUOTE
    The only real difficulties in programming are cache invalidation and
-   naming things. -- Phil Karlton
+   naming things.
+
+   -- Phil Karlton
    #+END_QUOTE
 
    - Use =lisp-case= for function and variable names.
