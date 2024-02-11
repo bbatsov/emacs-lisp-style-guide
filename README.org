@@ -824,9 +824,9 @@
    :CUSTOM_ID: tools
    :END:
 
-   - Use =checkdoc= to check for style issues
+   - Use =checkdoc= to check for docstring style issues.
 
-     - Many in the Emacs community use =checkdoc= with
+     - Many people in the Emacs community use =checkdoc= with
        [[http://flycheck.readthedocs.org/en/latest/][Flycheck]].
 
    - Use [[https://github.com/purcell/package-lint][package-lint]] to
@@ -834,7 +834,7 @@
      [[https://melpa.org/][MELPA]].
 
      - See the =package-lint= README about integration with
-       [[http://www.flycheck.org/en/latest/][flycheck]].
+       [[http://www.flycheck.org/en/latest/][Flycheck]].
 
 ** Existential
    :PROPERTIES:
