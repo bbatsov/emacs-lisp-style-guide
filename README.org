@@ -309,6 +309,22 @@
      (bar))
    #+END_SRC
 
+   - Use =not= instead of =null=, unless your checking whether something is
+     =nil= (empty list). Despite its name (=null= instead of =nullp=), the
+     function =null= is mostly meant to be used as a predicate.
+
+   #+BEGIN_SRC emacs-lisp
+     ;; good
+     (if (null lst) ...)
+
+     (if (or (not foo) something) ...)
+
+     ;; bad
+     (if (not lst))
+
+     (if (and (null foo) bar) ...)
+   #+END_SRC
+
    - When doing comparisons, keep in mind that the functions =<=, =>=, etc.
      accept a variable number of arguments as of Emacs 24.4.
 
