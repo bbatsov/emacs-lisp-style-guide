@@ -621,10 +621,10 @@
    ;;; bad
    (add-hook 'prog-mode-hook 'turn-on-column-number-mode)
    (add-hook 'prog-mode-hook 'turn-off-line-number-mode)
-   (add-hook 'prog-mode-hook 'linum-mode))
+   (add-hook 'prog-mode-hook 'linum-mode)
    (add-hook 'text-mode-hook 'turn-on-column-number-mode)
    (add-hook 'text-mode-hook 'turn-off-line-number-mode)
-   (add-hook 'text-mode-hook 'linum-mode))
+   (add-hook 'text-mode-hook 'linum-mode)
      #+END_SRC
 
    - Use =seq-do= or =dolist= instead of =mapcar= if you don't intend to
