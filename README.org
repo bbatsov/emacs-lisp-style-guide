@@ -525,6 +525,8 @@
    #+END_SRC
 
    - Create an example of a macro usage first and the macro afterwards.
+     Starting with the desired usage makes it easier to design a natural
+     API and avoids over-engineering the macro's interface.
 
    - Break complicated macros into smaller functions whenever possible.
 
