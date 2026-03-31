@@ -31,7 +31,7 @@
   examples that illustrate them clearly enough. In due time these issues
   will be addressed --- just keep them in mind for now.
 
-  Please note, that the Emacs developers maintain a list of
+  Please note that the Emacs developers maintain a list of
   [[http://www.gnu.org/software/emacs/manual/html_node/elisp/Tips.html#Tips][coding conventions and tips]] too.
 
   You can generate a PDF or an HTML copy of this guide using [[https://pandoc.org/][Pandoc]].
@@ -82,7 +82,7 @@
    In practical terms this means you should add the following to your Emacs
    config:
 
-   #+BEGIN_SRC emacs-lisp emacs-lisp
+   #+BEGIN_SRC emacs-lisp
    (setq-default indent-tabs-mode nil)
    #+END_SRC
 
@@ -187,8 +187,8 @@
      bash$ git config --global core.autocrlf true
      #+END_SRC
 
-   - If any text precedes an opening bracket(=(=, ={= and =[=) or follows a
-     closing bracket(=)=, =}= and =]=), separate that text from that
+   - If any text precedes an opening bracket (=(=, ={= and =[=) or follows a
+     closing bracket (=)=, =}= and =]=), separate that text from that
      bracket with a space. Conversely, leave no space after an opening
      bracket and before following text, or after preceding text and before
      a closing bracket.
@@ -309,7 +309,7 @@
      (bar))
    #+END_SRC
 
-   - Use =not= instead of =null=, unless your checking whether something is
+   - Use =not= instead of =null=, unless you're checking whether something is
      =nil= (empty list). Despite its name (=null= instead of =nullp=), the
      function =null= is mostly meant to be used as a predicate.
 
