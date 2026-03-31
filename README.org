@@ -529,6 +529,27 @@
      API and avoids over-engineering the macro's interface.
 
    - Break complicated macros into smaller functions whenever possible.
+     Extracting logic into functions makes it easier to test and debug,
+     since you can call and inspect functions at runtime but not macro
+     internals.
+
+   #+BEGIN_SRC emacs-lisp
+   ;; good - macro delegates to a function
+   (defun foo--register (name args)
+     (let ((processed (some-complex-transformation args)))
+       (register-foo name)
+       (setup-foo name processed)))
+
+   (defmacro foo (name &rest args)
+     `(foo--register ,name ,args))
+
+   ;; bad - complex logic inlined in the macro body
+   (defmacro foo (name &rest args)
+     (let ((processed (some-complex-transformation args)))
+       `(progn
+          (register-foo ',name)
+          (setup-foo ',name ,@processed))))
+   #+END_SRC
 
    - A macro should usually just provide syntactic sugar and the core of
      the macro should be a plain function. Doing so will improve
