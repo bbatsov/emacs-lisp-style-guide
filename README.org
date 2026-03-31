@@ -298,8 +298,11 @@
      (create-buffer "*foo*" 'text-mode t) ; what do these mean?
      #+END_SRC
 
-   - Always enable lexical scoping. This must be done on the first line as
-     a file local variable.
+   - Always enable [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Lexical-Binding.html][lexical scoping]]. Lexical scoping reduces the risk of
+     unintended variable capture, makes closures work as expected, and
+     enables additional byte-compiler optimizations. There's rarely a
+     reason to use dynamic scoping for new code. This must be done on the
+     first line as a file local variable.
 
      #+BEGIN_SRC emacs-lisp
      ;;; -*- lexical-binding: t; -*-
