@@ -509,7 +509,20 @@
    :CUSTOM_ID: macros
    :END:
 
-   - Don't write a macro if a function will do.
+   - Don't write a macro if a function will do. Macros don't compose
+     like functions -- you can't =funcall=, =apply=, or pass them as
+     arguments -- so they should only be used when you actually need
+     compile-time code transformation.
+
+   #+BEGIN_SRC emacs-lisp
+   ;; good - a function is sufficient here
+   (defun double (x)
+     (* x 2))
+
+   ;; bad - a macro is unnecessary when a function works just as well
+   (defmacro double (x)
+     `(* ,x 2))
+   #+END_SRC
 
    - Create an example of a macro usage first and the macro afterwards.
 
