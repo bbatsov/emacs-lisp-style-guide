@@ -272,7 +272,31 @@
    - Avoid trailing whitespace.
 
    - Avoid parameter lists with more than three or four positional
-     parameters.
+     parameters. Long positional parameter lists are hard to remember and
+     easy to get wrong at call sites -- callers have to recall the exact
+     order, and it's unclear what each argument means without checking the
+     definition. Consider using keyword arguments via =cl-defun= instead.
+     Note that enabling =eldoc-mode= in Emacs alleviates this issue to a
+     large extent, as you constantly see the signature of a function in
+     the minibuffer.
+
+     #+BEGIN_SRC emacs-lisp
+     ;; good - use keyword arguments via cl-defun
+     (cl-defun create-buffer (&key name mode read-only)
+       ...)
+     (create-buffer :name "*foo*" :mode 'text-mode :read-only t)
+
+     ;; good - or use an alist/plist for configuration
+     (defun create-buffer (config)
+       (let-alist config
+         ...))
+     (create-buffer '((name . "*foo*") (mode . text-mode) (read-only . t)))
+
+     ;; bad - too many positional parameters
+     (defun create-buffer (name mode read-only)
+       ...)
+     (create-buffer "*foo*" 'text-mode t) ; what do these mean?
+     #+END_SRC
 
    - Always enable lexical scoping. This must be done on the first line as
      a file local variable.
