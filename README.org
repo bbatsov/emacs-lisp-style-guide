@@ -555,7 +555,18 @@
      the macro should be a plain function. Doing so will improve
      composability.
 
-   - Prefer syntax-quoted forms over building lists manually.
+   - Prefer backquote (=`=) over building lists manually with =list=
+     and =cons=.
+
+   #+BEGIN_SRC emacs-lisp
+   ;; good
+   (defmacro when (cond &rest body)
+     `(if ,cond (progn ,@body)))
+
+   ;; bad
+   (defmacro when (cond &rest body)
+     (list 'if cond (cons 'progn body)))
+   #+END_SRC
 
 ** Functions
    :PROPERTIES:
