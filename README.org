@@ -402,6 +402,16 @@
 
    - Use =(1+ x)= & =(1- x)= instead of =(+ x 1)= and =(- x 1)=.
 
+   #+BEGIN_SRC emacs-lisp
+   ;; good
+   (1+ x)
+   (1- x)
+
+   ;; bad
+   (+ x 1)
+   (- x 1)
+   #+END_SRC
+
    - Use =with-eval-after-load= instead of =eval-after-load=.
 
    #+BEGIN_SRC emacs-lisp
