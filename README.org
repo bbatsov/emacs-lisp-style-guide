@@ -241,7 +241,31 @@
 
    - Do not place blank lines in the middle of a function or macro
      definition. An exception can be made to indicate grouping of pairwise
-     constructs as found in e.g. =let= and =cond=.
+     constructs as found in e.g. =let= and =cond=.
+
+     #+BEGIN_SRC emacs-lisp
+     ;; good
+     (defun foo ()
+       (let ((x 1)
+             (y 2))
+         (+ x y)))
+
+     ;; good - grouping pairwise constructs in let
+     (defun bar ()
+       (let ((x 1)
+             (y 2)
+
+             (a 3)
+             (b 4))
+         (+ x y a b)))
+
+     ;; bad
+     (defun foo ()
+       (let ((x 1)
+             (y 2))
+
+         (+ x y)))
+     #+END_SRC
 
    - Where feasible, avoid making lines longer than 80 characters.
 
